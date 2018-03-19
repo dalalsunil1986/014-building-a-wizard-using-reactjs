@@ -9,7 +9,7 @@ export default function CharacterInfo(props) {
         <label for='charcter-name'>Name</label>
         <input name='charcter-name'
           value={props.characterName}
-          onChange={props.characterNameChanged}
+          onChange={props.handleNameChange}
         />
       </div>
 
@@ -17,12 +17,14 @@ export default function CharacterInfo(props) {
         <label for='charcter-bio'>Bio</label>
         <textarea name='charcter-bio'
           value={props.characterBio}
-          onChange={props.characterBioChanged}
+          onChange={props.handleBioChange}
         />
       </div>
 
       <div className='button'>
-        <button>Save</button>
+        <button
+          onClick={props.handleInfoSave}
+        >Save</button>
       </div>
     </div>
   </div>

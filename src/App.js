@@ -17,19 +17,43 @@ class App extends React.Component {
           handleClassSelection={this.handleClassSelection}
         />
       case 'CharacterInfo':
-        return <CharacterInfo />
+        return <CharacterInfo
+          handleNameChange={this.handleNameChange}
+          handleBioChange={this.handleBioChange}
+          handleInfoSave={this.handleInfoSave}
+        />
       case 'RollStats':
-        return <RollStats />
+        return <RollStats
+          
+        />
       default:
         throw("Not a valid step!")
     }
   }
 
   handleClassSelection = (klass) => {
-    const party = this.state.party
+    const party = {...this.state.party}
     const player = party[this.state.currentSlot.toString()]
     player.klass = klass
     this.setState({ party, currentStep: 'CharacterInfo' })
+  }
+
+  handleNameChange = (e) => {
+    const party = {...this.state.party}
+    const player = party[this.state.currentSlot.toString()]
+    player.name = e.target.value
+    this.setState({ party })
+  }
+
+  handleBioChange = (e) => {
+    const party = {...this.state.party}
+    const player = party[this.state.currentSlot.toString()]
+    player.bio = e.target.value
+    this.setState({ party })
+  }
+
+  handleInfoSave = () => {
+    this.setState({ currentStep: 'RollStats' })
   }
 
   render() {
