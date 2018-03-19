@@ -14,7 +14,6 @@ class App extends React.Component {
     switch(this.state.currentStep) {
       case 'ClassSelect':
         return <ClassSelect
-          handleClassSelection={this.handleClassSelection}
         />
       case 'CharacterInfo':
         return <CharacterInfo />
@@ -23,13 +22,6 @@ class App extends React.Component {
       default:
         throw("Not a valid step!")
     }
-  }
-
-  handleClassSelection = (klass) => {
-    const party = {...this.state.party}
-    const player = party[this.state.currentSlot.toString()]
-    player.klass = klass
-    this.setState({ party, currentStep: 'CharacterInfo' })
   }
 
   render() {
