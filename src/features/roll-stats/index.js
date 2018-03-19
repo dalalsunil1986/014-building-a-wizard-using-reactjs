@@ -17,10 +17,8 @@ export default function RollStats(props) {
       </div>
       <div className='actions'>
         <button
-          onClick={props.handleRoll}
         >Roll</button>
         <button
-          onClick={props.handleStatsSave}
         >Save</button>
       </div>
     </div>
