@@ -1,4 +1,5 @@
 import React from 'react'
+import './styles.css'
 
 export default function RollStats(props) {
   return <div>
@@ -15,8 +16,12 @@ export default function RollStats(props) {
         </ul>
       </div>
       <div className='actions'>
-        <button>Roll</button>
-        <button>Save</button>
+        <button
+          onClick={props.handleRoll}
+        >Roll</button>
+        <button
+          onClick={props.handleStatsSave}
+        >Save</button>
       </div>
     </div>
   </div>
