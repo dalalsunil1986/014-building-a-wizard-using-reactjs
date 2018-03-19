@@ -26,7 +26,7 @@ class App extends React.Component {
   }
 
   handleClassSelection = (klass) => {
-    const party = this.state.party
+    const party = {...this.state.party}
     const player = party[this.state.currentSlot.toString()]
     player.klass = klass
     this.setState({ party, currentStep: 'CharacterInfo' })
