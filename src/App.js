@@ -58,7 +58,6 @@ class App extends React.Component {
     this.setState({ currentStep: 'RollStats' })
   }
 
-<<<<<<< HEAD
   randomStat = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min
   }
@@ -86,8 +85,6 @@ class App extends React.Component {
     
   }
 
-=======
->>>>>>> layout only
   render() {
     return (
       <div
