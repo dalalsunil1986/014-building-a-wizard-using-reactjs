@@ -1,4 +1,5 @@
 import React from 'react'
+import './styles.css'
 
 export default function ClassSelect(props) {
   return <div>
@@ -8,10 +9,10 @@ export default function ClassSelect(props) {
         ['archer', 'warrior', 'bard', 'wizard', 'thief', 'cleric'].map(klass => {
           return <div
             className='class-slot'
-            onClick={() => props.onClassSelect(klass)}
+            onClick={() => props.handleClassSelection(klass)}
           >
             <div>{ klass }</div>
-            <img src={`/classes/${klass}.jpg`} width={150} height={150} />
+            <img src={`/classes/${klass}.jpg`} width={130} height={130} />
           </div>
         })
       }

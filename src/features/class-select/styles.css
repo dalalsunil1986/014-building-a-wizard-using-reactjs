@@ -14,3 +14,7 @@
   font-size: 1em;
   font-weight: bold;
 }
+
+.character-slot.highlighted {
+  border: 2px solid red;
+}

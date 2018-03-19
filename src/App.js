@@ -3,15 +3,33 @@ import ClassSelect from './features/class-select'
 import CharacterInfo from './features/character-info'
 import RollStats from './features/roll-stats'
 
+import initialState from './initial-state'
+
 import './app.css'
 
 class App extends React.Component {
-  state = {
-    currentStep: 'ClassSelect',
+  state = initialState
+
+  renderCurrentStep = () => {
+    switch(this.state.currentStep) {
+      case 'ClassSelect':
+        return <ClassSelect
+          handleClassSelection={this.handleClassSelection}
+        />
+      case 'CharacterInfo':
+        return <CharacterInfo />
+      case 'RollStats':
+        return <RollStats />
+      default:
+        throw("Not a valid step!")
+    }
   }
 
-  renderCurrentStep() {
-    return <div>This section will change based on our current step</div>
+  handleClassSelection = (klass) => {
+    const party = this.state.party
+    const player = party[this.state.currentSlot.toString()]
+    player.klass = klass
+    this.setState({ party, currentStep: 'CharacterInfo' })
   }
 
   render() {
@@ -26,9 +44,9 @@ class App extends React.Component {
           </div>
           <div className='character-slots'>
             {
-              [1,2,3,4].map(no => {
-                return <div className='character-slot'>
-                  <span>{ no }</span>
+              [0,1,2,3].map(no => {
+                return <div className={`character-slot ${this.state.currentSlot === no ? 'highlighted' : ''}`}>
+                  <span>{ no+1 }</span>
                 </div>
               })
             }
