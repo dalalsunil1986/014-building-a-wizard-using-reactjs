@@ -1,0 +1,36 @@
+.roll-attributes {
+
+}
+
+.attributes {
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.attributes ul {
+  list-style-type: none;
+}
+
+.attributes li {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.actions {
+  height: 400px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.actions button {
+  display: block;
+  margin: 10px;
+  font-size: 1.2em;
+  padding: 10px 60px;
+}
