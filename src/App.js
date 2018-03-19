@@ -18,9 +18,10 @@ class App extends React.Component {
         />
       case 'CharacterInfo':
         return <CharacterInfo
+          name={this.state.party[this.state.currentSlot].name}
           handleNameChange={this.handleNameChange}
+          bio={this.state.party[this.state.currentSlot].bio}
           handleBioChange={this.handleBioChange}
-          handleInfoSave={this.handleInfoSave}
         />
       case 'RollStats':
         return <RollStats
@@ -40,14 +41,14 @@ class App extends React.Component {
 
   handleNameChange = (e) => {
     const party = {...this.state.party}
-    const player = party[this.state.currentSlot.toString()]
+    const player = this.state.party[this.state.currentSlot]
     player.name = e.target.value
     this.setState({ party })
   }
 
   handleBioChange = (e) => {
     const party = {...this.state.party}
-    const player = party[this.state.currentSlot.toString()]
+    const player = this.state.party[this.state.currentSlot]
     player.bio = e.target.value
     this.setState({ party })
   }
